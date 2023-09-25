@@ -1,0 +1,236 @@
+/* pseudoclase que representa al elemento HTML 
+pero tiene mayor especificidad 
+declarar variables CSS globales
+*/
+:root{
+    --bg-color:#2a2a2a;
+    --primary-color:#b1dd00;
+    --secondary-color:#143954;
+    --third-color:#62828f;
+    --bg-input-color:rgba(255,255,255,0.1);
+}
+
+/* Selector universal */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+/* 5 especificidad */
+body{
+    background: var(--bg-color);
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Selector de etiqueta */
+h2{
+    color:#FFF;
+    font-size: 2vw;
+}
+
+/* Selector por clase - probar especifidad con ID*/
+.header{
+    background-color: #18191a;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+    z-index: 9999;
+}
+
+nav {
+    display: flex;
+    /* flex-direction: column; disposicion eje principal */
+    /* flex-direction: column-reverse; */
+    justify-content: space-between;    
+    align-items: center; 
+    height: 60px;
+    padding: 0px 50px;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+/* Selector avanzado: hijos directos */
+.nav-links li > a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+/* Selector por Id */
+#banner{
+    background-image: url('../img/fondoprovisorio.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+}
+
+/* Selector avanzado de hermano adyacente */
+/* h1 + h2 {
+    color:#b1dd00!important;
+} */
+
+/* Selector avanzado: regla general de hermanos */
+/* h1 ~ h2 {
+    color: brown;
+} */
+/* .container { */
+    /* background-color: #62828f; */
+    /* max-width: 1200px;
+    margin: 0 auto; */
+    /* padding: 20px; */
+    /* border: 5px solid saddlebrown; */
+
+    /* border-color:#143954;
+    border-width:2px;
+    border-style: dotted; */
+
+    /* box-sizing: border-box; */
+    /* margin: 0 auto; */
+/* } */
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-card{
+    text-align: center;
+    padding: 0px 160px;
+}
+
+/* Selector avanzado: descendente */
+.banner-card h1{
+    color: #FFF;
+    font-size: 4vw;
+}
+
+.banner-card h2{
+    margin-bottom: 20px;
+}
+
+.btn-cac{
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 10px;
+    color:#FFF;
+}
+
+/* pseudoclase para identificar un estado */
+.btn-cac:hover{
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+/* relative: mueve un elemento en relación con su posición normal */
+/* .contenedor{
+    width: 300px;
+    height: 300px;
+    background: #143954;
+    position: relative;
+    top:20px;
+    color:white;
+} */
+
+/*  absolute coloca un elemento en una posición específica en relación con su ancestro posicionado más cercano. */
+/* .item1{
+    width: 30px;
+    height: 30px;
+    background: #b1dd00;
+    position: absolute;
+    right:0px;
+}
+.item2{
+    width: 30px;
+    height: 30px;
+    background: #62828f;
+} */
+
+.movie-item-img{
+    width: 150px;
+}
+
+.movie-item-detail-subtitle::after{
+    content: '🌟';
+}
+
+.movies-flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* #movie1{
+    background-color: #62828f;
+    flex-grow: 1;
+    order: 1;
+}
+
+#movie6{
+    background-color: #688f62;
+    flex-basis: 50%;
+    order: 2;
+} */
+
+#search{
+    /* background-color: #b1dd00; */
+}
+
+/* Selector avanzado: agrupado */
+#popular, #top-rated, #search {
+    text-align: center;
+}
+
+/* TRANSFORMACIONES */
+#movie1 {
+    /* transform: rotate(45deg);
+    transform: scale(1.5);
+    transform: translate(30px,50px); */
+    transform: rotate(20deg) scale(0.75) translate(10px,10px);
+}
+
+/* TRANSICION */
+#movie4 {
+    background-color: #bb1111;
+    transition: all 4.2s ease-in 1s;
+}
+
+@keyframes changeColor {
+    from {background-color: #b1dd00;}
+    to { background-color: #62828f;}
+}
+
+#movie6{
+    animation: changeColor 1s linear 1s infinite normal forwards running;
+}
+
+#footer {
+    align-items: center;
+    background-color: #18191a;
+    display: flex;
+    height: 100px;
+    width: 100%;
+    gap: 20px;
+}
+
+#footer a{
+    text-decoration: none;
+}
+
+/* ejemplo de pseudoclases */
+#footer a:first-child{
+    color: #FFF;
+}
+
+#footer a:nth-child(2){
+    color: var(--secondary-color);
+}
+
+#footer a:last-child{
+    color: var(--primary-color);
+}
